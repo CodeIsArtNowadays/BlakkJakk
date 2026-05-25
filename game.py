@@ -10,6 +10,9 @@ VALUES = {
 }
 
 
+def calculate_value(cards):
+	pass
+
 class Deck:
 
 	cards = []
