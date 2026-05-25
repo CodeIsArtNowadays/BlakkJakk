@@ -9,10 +9,6 @@ VALUES = {
 	'A': 11
 }
 
-
-def calculate_value(cards):
-	pass
-
 class Deck:
 
 	cards = []
@@ -42,11 +38,13 @@ class Hand:
 	@property
 	def hand_value(self):
 		total = 0
-		for card in self.hand:
-			if str(card['rank']) in 'JQKA':
-				total += VALUES[card['rank']]
-			else:
-				total += card['rank']
+		if 'A' not in self.cards:
+			for card in self.hand:
+				if str(card['rank']) in 'JQKA':
+					total += VALUES[card['rank']]
+				else:
+					total += card['rank']
+		
 		return total
 
 class Player(Hand):
